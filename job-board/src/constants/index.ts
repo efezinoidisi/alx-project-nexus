@@ -1,3 +1,3 @@
-export const EXPERIENCE_LEVELS = ['entry-level', 'mid-level', 'senior'];
+export const EXPERIENCE_LEVELS = ["entry", "mid", "senior"];
 
-export const JOB_TYPES = ['part-time', 'internship', 'contract', 'full-time'];
+export const JOB_TYPES = ["part-time", "remote", "contract", "full-time"];

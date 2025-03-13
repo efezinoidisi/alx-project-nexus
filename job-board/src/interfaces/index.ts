@@ -1,25 +1,29 @@
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon } from "lucide-react";
 
 export interface Job {
-  id: number;
+  id: string;
+  no_of_applicants: string;
   title: string;
   company: string;
   location: string;
-  category: string;
-  experienceLevel: string;
+  wage: string;
+  type: string;
+  experience_level: string;
   description: string;
-  salaryRange: string;
-  jobType: string;
-  postedDate: string;
-  applicationDeadline: string;
-  skillsRequired: Array<string>;
+  posted_at: string;
+  responsibilities: string;
+  required_skills: string;
+  picture: string;
+  industry: string;
+  category: string;
+  posted_by: string;
 }
 
 export interface JobCardProps {
   job: Job;
 }
 
-export interface InputProps extends React.ComponentProps<'input'> {
+export interface InputProps extends React.ComponentProps<"input"> {
   isError?: boolean;
 }
 
@@ -30,7 +34,7 @@ export interface FieldProps {
   error?: string;
 }
 
-export interface CheckboxProps extends React.ComponentProps<'input'> {
+export interface CheckboxProps extends React.ComponentProps<"input"> {
   label: string;
   labelStyles?: string;
 }
@@ -43,6 +47,6 @@ export interface DropdownProps {
   name: string;
 }
 
-export interface SearchProps extends React.ComponentProps<'input'> {
+export interface SearchProps extends React.ComponentProps<"input"> {
   Icon?: LucideIcon;
 }
