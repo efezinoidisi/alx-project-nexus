@@ -1,7 +1,5 @@
 import { ICON_SIZE } from '@/constants';
-import { Job } from '@/interfaces';
-import { api } from '@/lib/api';
-import { getTimeAgo } from '@/utils';
+import { fetchJob, getTimeAgo } from '@/utils';
 import {
   CircleCheckBig,
   Clock,
@@ -18,20 +16,6 @@ import { notFound } from 'next/navigation';
 interface JobDetailsPageProps {
   params: Promise<{ id: string }>;
 }
-
-const fetchJob = async (id: string): Promise<Job | undefined> => {
-  try {
-    const res = await api.get(`/job/${id}/`);
-
-    if (res.status !== 200) return undefined;
-
-    return res.data;
-  } catch (error) {
-    console.log(error);
-
-    return undefined;
-  }
-};
 
 export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
   const { id } = await params;
@@ -145,7 +129,10 @@ export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
       <div className='flex justify-center'>
         {job.is_active ? (
           <Link
-            href={`/job/${id}/apply`}
+            href={{
+              pathname: `/job/${id}/apply`,
+              query: { company: job.company, title: job.title },
+            }}
             className='gradient2 py-3 px-16 rounded-full text-white font-semibold text-lg md:text-xl hover:scale-105 transition-all duration-200 ease-linear'
           >
             Apply now

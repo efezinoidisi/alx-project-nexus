@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: linear-gradient(0deg, #fff8ee, #f1eeec);
@@ -56,7 +56,7 @@
 
   .hero {
     background: linear-gradient(0deg, rgba(202, 166, 145, 0.6), #4a3a62),
-      url("/assets/images/job-hunt.png");
+      url('/assets/images/job-hunt.png');
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -74,7 +74,7 @@
         rgba(0, 0, 0, 0.3) 0%,
         rgba(0, 0, 0, 0.5) 100%
       ),
-      url("/assets/images/auth-bg.png");
+      url('/assets/images/auth-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

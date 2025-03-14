@@ -1,3 +1,5 @@
 export default function LoadingJobDetail() {
-  return <div>loading job detail</div>;
+  return (
+    <div className='min-h-40 grid place-items-center '>loading job detail</div>
+  );
 }

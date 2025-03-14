@@ -1,6 +1,6 @@
 'use client';
 
-import { ApplicantSignup, applicantSignupSchema } from '@/constants/schemas';
+import { ApplicantSignup, applicantSignupSchema } from '@/lib/schemas';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';

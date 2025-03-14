@@ -62,3 +62,17 @@ export interface DropdownProps {
 export interface SearchProps extends React.ComponentProps<'input'> {
   Icon?: LucideIcon;
 }
+
+export interface JobApplicationSearchParams {
+  title: string;
+  company: string;
+}
+
+export interface JobApplicationPageProps {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<JobApplicationSearchParams>;
+}
+
+export interface JobApplicationFormProps {
+  jobId: string;
+}

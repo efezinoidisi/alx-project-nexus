@@ -1,5 +1,5 @@
-import { ApplicantSignup, Login } from '@/constants/schemas';
 import { api } from '@/lib/api';
+import { ApplicantSignup, Login } from '@/lib/schemas';
 import {
   createSession,
   deleteSession,

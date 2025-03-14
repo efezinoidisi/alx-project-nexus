@@ -16,8 +16,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Leads Job Board',
-  description: 'Find the best Jobs or Employ the best talents',
+  title: 'JobsGO Job Board',
+  description:
+    'A place where you can find the best Jobs and employ the best talents',
 };
 
 export default function RootLayout({
@@ -31,7 +32,7 @@ export default function RootLayout({
         className={`${firaCode.variable} ${montserrat.variable} relative font-montserrat`}
       >
         <SessionProvider>
-          <Toaster position='bottom-right' duration={5000} />
+          <Toaster position='bottom-right' duration={10000} />
           <Header />
           {children}
         </SessionProvider>

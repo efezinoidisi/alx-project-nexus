@@ -1,6 +1,6 @@
 'use client';
 
-import { Login, loginSchema } from '@/constants/schemas';
+import { Login, loginSchema } from '@/lib/schemas';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
