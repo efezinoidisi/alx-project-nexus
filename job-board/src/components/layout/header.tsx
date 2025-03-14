@@ -1,11 +1,12 @@
 'use client';
 
+import useSession from '@/hooks/use-session';
 import { cn } from '@/utils';
-import { User } from 'lucide-react';
 import Link from 'next/link';
+import UserDropdown from '../user';
 
 const Header = () => {
-  const isLoggedIn = false;
+  const { session } = useSession();
 
   return (
     <header
@@ -23,9 +24,9 @@ const Header = () => {
         </Link>
 
         <nav>
-          {isLoggedIn ? (
+          {session ? (
             <>
-              <User />
+              <UserDropdown user={session.user} />
             </>
           ) : (
             <>

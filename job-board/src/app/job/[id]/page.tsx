@@ -1,7 +1,7 @@
-import { ICON_SIZE } from "@/constants";
-import { Job } from "@/interfaces";
-import { api } from "@/lib/api";
-import { getTimeAgo } from "@/utils";
+import { ICON_SIZE } from '@/constants';
+import { Job } from '@/interfaces';
+import { api } from '@/lib/api';
+import { getTimeAgo } from '@/utils';
 import {
   CircleCheckBig,
   Clock,
@@ -10,10 +10,10 @@ import {
   MapPin,
   Pen,
   User,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface JobDetailsPageProps {
   params: Promise<{ id: string }>;
@@ -86,7 +86,7 @@ export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
 
           <p className=''>
             <span className='font-bold text-lg md:text-xl'>${job.wage}</span>
-            <sub>/month</sub>{" "}
+            <sub>/month</sub>{' '}
           </p>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
       <div className='flex justify-center'>
         {job.is_active ? (
           <Link
-            href={`/apply/${id}`}
+            href={`/job/${id}/apply`}
             className='gradient2 py-3 px-16 rounded-full text-white font-semibold text-lg md:text-xl hover:scale-105 transition-all duration-200 ease-linear'
           >
             Apply now

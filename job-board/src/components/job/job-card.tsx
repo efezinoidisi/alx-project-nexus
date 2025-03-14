@@ -1,21 +1,14 @@
-import { JobCardProps } from "@/interfaces";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React from "react";
+import { JobCardProps } from '@/interfaces';
+import Link from 'next/link';
+import React from 'react';
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   const { title, id, company, location, category, wage } = job;
 
-  const router = useRouter();
-
-  const goToJob = () => {
-    router.push(`/job/${id}`);
-  };
-
   return (
-    <div
+    <Link
+      href={`/job/${id}`}
       className='flex flex-col md:flex-row items-center bg-white border-grey rounded-xl p-4 w-full space-y-4 md:space-y-2.5 md:py-2.5 h-fit'
-      onClick={goToJob}
     >
       <div className='space-y-4 md:space-y-2.5 w-full'>
         <span className='inline-block uppercase text-xs'>{company}</span>
@@ -24,19 +17,16 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           <p>{location}</p>
           <span className='size-[3px] bg-gray-500 rounded-full' />
           <p>{category}</p>
-          <span className='size-[3px] bg-gray-500 rounded-full' />{" "}
+          <span className='size-[3px] bg-gray-500 rounded-full' />{' '}
           <p>${wage}</p>
         </div>
       </div>
       <div className='w-full md:w-fit'>
-        <Link
-          href={""}
-          className='gradient2 p-2.5 rounded-full bg-gray-400 font-medium px-3.5 text-nowrap w-full flex justify-center text-light'
-        >
+        <button className='gradient2 p-2.5 rounded-full bg-gray-400 font-medium px-3.5 text-nowrap w-full flex justify-center text-light'>
           Apply Now
-        </Link>
+        </button>
       </div>
-    </div>
+    </Link>
   );
 };
 
