@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { ApplicantSignup, applicantSignupSchema } from "@/constants/schemas";
-import { useTransition } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { ApplicantSignup, applicantSignupSchema } from '@/constants/schemas';
+import { useTransition } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
-import { signupAction } from "@/actions/auth";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import Field from "../common/field";
-import Input from "../common/input";
-import PasswordInput from "../common/password-input";
+import { signupAction } from '@/actions/auth';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2 } from 'lucide-react';
+import Field from '../common/field';
+import Input from '../common/input';
+import PasswordInput from '../common/password-input';
 
 const SignupForm = () => {
   const [isLoading, startTransition] = useTransition();
@@ -19,14 +19,11 @@ const SignupForm = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    setValue,
-    getValues,
-    clearErrors,
   } = useForm<ApplicantSignup>({
     resolver: zodResolver(applicantSignupSchema),
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      role: "user",
+      role: 'user',
     },
   });
 
@@ -51,7 +48,7 @@ const SignupForm = () => {
             id='first_name'
             error={errors.first_name?.message}
           >
-            <Input {...register("first_name")} />
+            <Input {...register('first_name')} />
           </Field>
 
           <Field
@@ -59,15 +56,15 @@ const SignupForm = () => {
             id='last_name'
             error={errors.last_name?.message}
           >
-            <Input {...register("last_name")} />
+            <Input {...register('last_name')} />
           </Field>
         </div>
         <Field label='Email' id='email' error={errors.email?.message}>
-          <Input {...register("email")} />
+          <Input {...register('email')} />
         </Field>
 
         <Field label='Password' id='password' error={errors.password?.message}>
-          <PasswordInput {...register("password")} />
+          <PasswordInput {...register('password')} />
         </Field>
       </div>
 

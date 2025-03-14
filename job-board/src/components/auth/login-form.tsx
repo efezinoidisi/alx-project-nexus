@@ -19,10 +19,7 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
-    setValue,
-    getValues,
-    clearErrors,
+    formState: { errors, isValid },
   } = useForm<Login>({
     resolver: zodResolver(loginSchema),
     mode: 'onChange',

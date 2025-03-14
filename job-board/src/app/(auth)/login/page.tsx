@@ -1,6 +1,6 @@
-import LoginForm from "@/components/auth/login-form";
-import { User } from "lucide-react";
-import Link from "next/link";
+import LoginForm from '@/components/auth/login-form';
+import { User } from 'lucide-react';
+import Link from 'next/link';
 
 export default function LoginPage() {
   return (
@@ -17,8 +17,8 @@ export default function LoginPage() {
 
       <div className='mt-3'>
         <p className='text-sm'>
-          Don&#39;t have an account?{" "}
-          <Link href={"/signup"} className='text-primary font-bold'>
+          Don&#39;t have an account?{' '}
+          <Link href={'/signup'} className='text-primary font-bold'>
             Register
           </Link>
         </p>
