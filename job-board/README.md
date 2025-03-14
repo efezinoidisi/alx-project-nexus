@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Job Board Platform
 
-## Getting Started
+This project provides a hands-on opportunity to develop an interactive platform that aligns with real-world requirements. It focuses on creating an interactive job board platform where users can explore, filter, and apply for job postings. The project emphasizes:
 
-First, run the development server:
+- API Integration
+- Advanced Filtering Techniques
+- Responsive Design
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Goals
+
+The primary objectives of the job board platform are:
+
+1. API Integration:
+   Dynamically fetch and display job postings from a backend API. Implement error handling and loading states for a seamless user experience.
+
+2. Advanced Filtering:
+   Enable users to filter job listings by:
+
+- Category
+- Location
+- Experience Level (Entry-Level, Mid-Level, Senior)
+
+3. Responsive and Accessible Design:
+   Ensure an optimal browsing experience across all devices with accessible forms and layouts.
+
+## Technologies Used
+
+- React/NextJS: For building dynamic and reusable components
+
+- Context API: To manage state efficiently and enable smooth user interactions.
+
+- Tailwind CSS: For implementing modern and responsive designs.
+
+- React Hook Form: For building accessible, performance-focused forms with easy validation.
+
+- Zod: For schema validation, ensuring form data is valid before submission.
+
+- Sonner: For providing lightweight and customizable toast notifications, ensuring a smooth user experience.
+
+## How to Setup Locally
+
+1. Clone this repository
+
+```
+git clone https://github.com/efezinoidisi/alx-project-nexus.git
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. change directory to project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd alx-project-nexus
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
+3. Install project dependencies
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Start up a local development server
 
-## Deploy on Vercel
+```
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
