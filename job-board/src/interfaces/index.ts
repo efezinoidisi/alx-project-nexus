@@ -76,3 +76,48 @@ export interface JobApplicationPageProps {
 export interface JobApplicationFormProps {
   jobId: string;
 }
+
+export interface JobDetailsPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export interface CategoryProps {
+  selectedCategory: string;
+  handleChange: (value: string) => void;
+  categories: Array<string>;
+}
+
+export interface JobListProps {
+  jobs: Job[];
+}
+
+export type SessionPayload = {
+  user: User;
+  accessToken: string | null;
+  refreshToken: string | null;
+  expiresAt: Date;
+};
+
+export interface SessionContextInterface {
+  session: SessionPayload | null;
+  updateSession: (session: SessionPayload | null) => void;
+}
+
+export type PasswordInputProps = React.ComponentProps<'input'> & {
+  isError?: boolean;
+};
+
+export type Filters = {
+  category: string;
+  type: Array<string>;
+  level: Array<string>;
+  location: string;
+};
+
+export interface LoginPageProps {
+  searchParams: Promise<{ next: string }>;
+}
+
+export interface LoginFormProps {
+  next: string;
+}

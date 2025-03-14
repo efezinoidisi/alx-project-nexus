@@ -5,16 +5,22 @@ import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { loginAction } from '@/actions/auth';
+import useSession from '@/hooks/use-session';
+import { LoginFormProps } from '@/interfaces';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import Field from '../common/field';
 import Input from '../common/input';
 import PasswordInput from '../common/password-input';
 
-const LoginForm = () => {
+const LoginForm: React.FC<LoginFormProps> = ({ next }) => {
   const [isLoading, startTransition] = useTransition();
+
+  const { updateSession } = useSession();
+
+  const router = useRouter();
 
   const {
     register,
@@ -29,6 +35,9 @@ const LoginForm = () => {
     startTransition(async () => {
       const res = await loginAction(data);
       if (res.success) {
+        const redirecTo = next || '/';
+        updateSession(res.data);
+        router.push(redirecTo);
         toast.success(res.message);
       } else {
         toast.error(res.message);
@@ -47,11 +56,11 @@ const LoginForm = () => {
           <PasswordInput {...register('password')} />
         </Field>
       </div>
-      <div className='mt-2 flex justify-end'>
+      {/* <div className='mt-2 flex justify-end'>
         <Link href={''} className='font-medium text-sm text-red-700'>
           Forgot password
         </Link>
-      </div>
+      </div> */}
 
       <div className='mt-5 flex justify-center'>
         <button

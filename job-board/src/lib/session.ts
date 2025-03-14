@@ -1,16 +1,9 @@
 'use server';
 
-import { User } from '@/interfaces';
+import { SessionPayload } from '@/interfaces';
 import { jwtVerify, SignJWT } from 'jose';
 import { cookies } from 'next/headers';
 import 'server-only';
-
-export type SessionPayload = {
-  user: User;
-  accessToken: string | null;
-  refreshToken: string | null;
-  expiresAt: Date;
-};
 
 const secretKey = process.env.SECRET_KEY;
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { SessionPayload } from './interfaces';
 import { api } from './lib/api';
-import { encrypt, getSession, SessionPayload } from './lib/session';
+import { encrypt, getSession } from './lib/session';
 
 export async function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;

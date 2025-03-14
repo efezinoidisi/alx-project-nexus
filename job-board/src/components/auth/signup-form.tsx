@@ -8,12 +8,15 @@ import { toast } from 'sonner';
 import { signupAction } from '@/actions/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import Field from '../common/field';
 import Input from '../common/input';
 import PasswordInput from '../common/password-input';
 
 const SignupForm = () => {
   const [isLoading, startTransition] = useTransition();
+
+  const router = useRouter();
 
   const {
     register,
@@ -33,6 +36,7 @@ const SignupForm = () => {
 
       if (res.success) {
         toast.success(res.message);
+        router.push('/login');
       } else {
         toast.error(res.message);
       }

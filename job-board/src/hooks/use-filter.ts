@@ -1,11 +1,5 @@
+import { Filters } from '@/interfaces';
 import { ChangeEvent, useState } from 'react';
-
-type Filters = {
-  category: string;
-  type: Array<string>;
-  level: Array<string>;
-  location: string;
-};
 
 export default function useFilter() {
   const defaultValues = {

@@ -1,11 +1,8 @@
-import useToggle from "@/hooks/use-toggle";
-import { cn } from "@/utils";
-import { Eye, EyeClosed } from "lucide-react";
-import React from "react";
-
-type PasswordInputProps = React.ComponentProps<"input"> & {
-  isError?: boolean;
-};
+import useToggle from '@/hooks/use-toggle';
+import { PasswordInputProps } from '@/interfaces';
+import { cn } from '@/utils';
+import { Eye, EyeClosed } from 'lucide-react';
+import React from 'react';
 
 const PasswordInput: React.FC<PasswordInputProps> = ({
   className,
@@ -14,16 +11,16 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
 }) => {
   const [isVisible, toggleVisibility] = useToggle();
 
-  const type = isVisible ? "text" : "password";
+  const type = isVisible ? 'text' : 'password';
 
   return (
     <div className='flex justify-between items-center relative'>
       <input
         type={type}
         className={cn(
-          "border bg-primary/2 border-grey w-full p-[15px] rounded-xl placeholder:text-grey placeholder:text-sm font-medium outline-none focus-within:outline-primary/20 focus-within:border-primary/50 h-[3.25rem] resize-none",
+          'border bg-primary/2 border-grey w-full p-[15px] rounded-xl placeholder:text-grey placeholder:text-sm font-medium outline-none focus-within:outline-primary/20 focus-within:border-primary/50 h-[3.25rem] resize-none',
           className,
-          isError && "border-danger"
+          isError && 'border-danger'
         )}
         {...otherProps}
       />

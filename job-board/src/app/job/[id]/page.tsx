@@ -1,4 +1,5 @@
 import { ICON_SIZE } from '@/constants';
+import { JobDetailsPageProps } from '@/interfaces';
 import { fetchJob, getTimeAgo } from '@/utils';
 import {
   CircleCheckBig,
@@ -12,10 +13,6 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
-interface JobDetailsPageProps {
-  params: Promise<{ id: string }>;
-}
 
 export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
   const { id } = await params;

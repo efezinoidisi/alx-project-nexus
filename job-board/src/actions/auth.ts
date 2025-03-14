@@ -1,11 +1,7 @@
+import { SessionPayload } from '@/interfaces';
 import { api } from '@/lib/api';
 import { ApplicantSignup, Login } from '@/lib/schemas';
-import {
-  createSession,
-  deleteSession,
-  getSession,
-  SessionPayload,
-} from '@/lib/session';
+import { createSession, deleteSession, getSession } from '@/lib/session';
 import { isAxiosError } from 'axios';
 
 export async function loginAction(formData: Login) {
@@ -26,6 +22,7 @@ export async function loginAction(formData: Login) {
     return {
       success: true,
       message: 'Login success!',
+      data: session,
     };
   } catch (error) {
     console.log(error, 'error');
@@ -35,6 +32,7 @@ export async function loginAction(formData: Login) {
         isAxiosError(error) && error.response?.data
           ? Object.values(error.response.data).toString()
           : 'Error logging in, please try again',
+      data: null,
     };
   }
 }

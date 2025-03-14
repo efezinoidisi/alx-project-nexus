@@ -1,11 +1,4 @@
-import { ReactNode } from "react";
-
-type FieldProps = {
-  label: string;
-  children: ReactNode;
-  id?: string;
-  error?: string;
-};
+import { FieldProps } from '@/interfaces';
 
 export default function Field({ label, children, id, error }: FieldProps) {
   return (

@@ -1,8 +1,18 @@
 import LoginForm from '@/components/auth/login-form';
+import { LoginPageProps } from '@/interfaces';
+import { getSession } from '@/lib/session';
 import { User } from 'lucide-react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const session = await getSession();
+
+  const { next } = await searchParams;
+
+  if (session) {
+    redirect('/');
+  }
   return (
     <main className='grid place-items-center py-5 md:py-10 bg-primary/10 w-full max-w-sm mx-auto mt-14 mb-10 rounded-4xl relative px-5'>
       <div className='absolute -top-10 left-1/2 -translate-x-1/2 bg-primary/20 rounded-full flex overflow-hidden'>
@@ -13,7 +23,7 @@ export default function LoginPage() {
         <p className='text-sm text-gray-500'>Apply for all kinds of Jobs</p>
       </div>
 
-      <LoginForm />
+      <LoginForm next={next} />
 
       <div className='mt-3'>
         <p className='text-sm'>

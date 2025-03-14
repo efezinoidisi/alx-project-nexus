@@ -1,21 +1,17 @@
-import { EXPERIENCE_LEVELS, JOB_TYPES } from "@/constants";
-import useFilter from "@/hooks/use-filter";
-import { useIsMobile } from "@/hooks/use-mobile";
-import useToggle from "@/hooks/use-toggle";
-import { Job } from "@/interfaces";
-import { cn } from "@/utils";
-import { Filter, MapPinned } from "lucide-react";
-import { motion } from "motion/react";
-import Image from "next/image";
-import React from "react";
-import Checkbox from "../common/checkbox";
-import Search from "../common/search";
-import Category from "../filters/category";
-import JobCard from "./job-card";
-
-interface JobListProps {
-  jobs: Job[];
-}
+import { EXPERIENCE_LEVELS, JOB_TYPES } from '@/constants';
+import useFilter from '@/hooks/use-filter';
+import { useIsMobile } from '@/hooks/use-mobile';
+import useToggle from '@/hooks/use-toggle';
+import { JobListProps } from '@/interfaces';
+import { cn } from '@/utils';
+import { Filter, MapPinned } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import React from 'react';
+import Checkbox from '../common/checkbox';
+import Search from '../common/search';
+import Category from '../filters/category';
+import JobCard from './job-card';
 
 const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
   const {
@@ -30,8 +26,6 @@ const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
     resetFilters,
   } = useFilter();
 
-  console.log(filters.type, "filter");
-
   const [showFilters, toggleFiltersVisibility] = useToggle();
 
   const isMobile = useIsMobile();
@@ -43,7 +37,7 @@ const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
     .filter((category, index, self) => self.indexOf(category) === index);
   const jobs = allJobs.filter((job) => {
     const category =
-      filters.category === "" || job.category === filters.category;
+      filters.category === '' || job.category === filters.category;
 
     const search = filters.location
       ? job.location
@@ -97,7 +91,7 @@ const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
           ) : (
             <div className='text-center oops  flex flex-col justify-start items-center'>
               <Image
-                src={"/assets/images/oops-rafiki.png"}
+                src={'/assets/images/oops-rafiki.png'}
                 alt='not found'
                 width={300}
                 height={200}
@@ -119,9 +113,9 @@ const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
           <motion.section
             id='filter section'
             className={cn(
-              "hidden md:block md:w-2xs lg:w-[18.75rem] space-y-4",
+              'hidden md:block md:w-2xs lg:w-[18.75rem] space-y-4',
               {
-                "block fixed inset-0 bg-light h-5/6 mt-auto z-[1000] w-full px-10 py-5 rounded-t-3xl md:static  overflow-y-auto":
+                'block fixed inset-0 bg-light h-5/6 mt-auto z-[1000] w-full px-10 py-5 rounded-t-3xl md:static  overflow-y-auto':
                   shouldAnimate,
               }
             )}

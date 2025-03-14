@@ -1,12 +1,8 @@
 'use client';
 
-import { getSession, SessionPayload } from '@/lib/session';
+import { SessionContextInterface, SessionPayload } from '@/interfaces';
+import { getSession } from '@/lib/session';
 import { createContext, ReactNode, useEffect, useState } from 'react';
-
-interface SessionContextInterface {
-  session: SessionPayload | null;
-  updateSession: (session: SessionPayload | null) => void;
-}
 
 const SessionContext = createContext<SessionContextInterface | null>(null);
 
