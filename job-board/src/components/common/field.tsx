@@ -1,8 +1,15 @@
-import { FieldProps } from '@/interfaces';
+import { ReactNode } from "react";
+
+type FieldProps = {
+  label: string;
+  children: ReactNode;
+  id?: string;
+  error?: string;
+};
 
 export default function Field({ label, children, id, error }: FieldProps) {
   return (
-    <div>
+    <div className='w-full'>
       {label ? (
         <label
           htmlFor={id}
@@ -14,9 +21,7 @@ export default function Field({ label, children, id, error }: FieldProps) {
 
       {children}
 
-      {error ? (
-        <small className='text-danger text-sm font-medium'>{error}</small>
-      ) : null}
+      {error ? <small className='text-danger text-xs'>{error}</small> : null}
     </div>
   );
 }

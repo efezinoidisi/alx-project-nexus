@@ -2,10 +2,12 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href='/'>Return Home</Link>
-    </div>
+    <main className='grid place-items-center min-h-screen'>
+      <h2 className='text-4xl font-bold'>Not Found</h2>
+      <p className='text-center'>Could not find requested resource</p>
+      <Link href='/' className='bg-black py-2 px-5 rounded-full text-white'>
+        Return Home
+      </Link>
+    </main>
   );
 }

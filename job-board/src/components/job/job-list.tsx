@@ -66,7 +66,7 @@ const JobList: React.FC<JobListProps> = ({ jobs: allJobs }) => {
   return (
     <section className='px-4 py-7 md:py-10 md:px-11 lg:px-28'>
       <div className='mb-5 flex items-center justify-between'>
-        <h2>Job Board</h2>
+        <h2 className='font-semibold text-xl'>Job Board</h2>
 
         <button
           className='md:hidden'

@@ -15,13 +15,19 @@ export default function Home() {
         </h1>
       </section>
 
-      {isLoading ? (
-        <div>
+      {isLoading && !isError && (
+        <div className='flex items-center justify-center min-h-56'>
           <p>fetching jobs</p>
         </div>
-      ) : (
-        <JobList jobs={jobs} />
       )}
+
+      {!isLoading && isError && (
+        <div className='flex items-center justify-center min-h-56'>
+          <p>Error fetching jobs</p>
+        </div>
+      )}
+
+      {!isLoading && !isError && <JobList jobs={jobs} />}
     </main>
   );
 }

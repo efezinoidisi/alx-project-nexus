@@ -1,12 +1,18 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(0deg, #fff8ee, #f1eeec);
+}
 
 @theme {
   --color-grey: #e4e4e4;
   --color-primary: #4a3c62;
-  --color-background: #112a12;
+  --color-background: var(--background);
   --color-accent: #245336;
   --color-foreground: #112a12;
   --color-light: #fff8ee;
+
+  --color-danger: #d30f3f;
 
   --breakpoint-ml: 31.25rem;
 
@@ -16,7 +22,7 @@
 
 @layer base {
   body {
-    background: linear-gradient(0deg, #fff8ee, #f1eeec);
+    background: var(--background);
     color: var(--color-foreground);
     min-height: 100vh;
     max-width: 90rem;
@@ -33,6 +39,10 @@
   h5 {
     font-family: var(--font-fira-code);
   }
+
+  p {
+    line-height: 1.6;
+  }
 }
 
 @layer components {
@@ -46,7 +56,7 @@
 
   .hero {
     background: linear-gradient(0deg, rgba(202, 166, 145, 0.6), #4a3a62),
-      url('/assets/images/job-hunt.png');
+      url("/assets/images/job-hunt.png");
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,5 +64,19 @@
     color: var(--color-light);
     -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.95) 96%, transparent);
     mask-image: linear-gradient (rgba(0, 0, 0, 0.8), transparent);
+  }
+}
+
+@layer utilities {
+  .bg-auth {
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      url("/assets/images/auth-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 }

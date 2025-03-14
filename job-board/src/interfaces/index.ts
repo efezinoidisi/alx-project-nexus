@@ -7,16 +7,17 @@ export interface Job {
   company: string;
   location: string;
   wage: string;
-  type: string;
+  type: string[];
   experience_level: string;
   description: string;
   posted_at: string;
-  responsibilities: string;
-  required_skills: string;
+  responsibilities: string[];
+  required_skills: string[];
   picture: string;
   industry: string;
   category: string;
   posted_by: string;
+  is_active: boolean;
 }
 
 export interface JobCardProps {
